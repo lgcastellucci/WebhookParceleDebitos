@@ -26,7 +26,7 @@ if (!app.Environment.IsDevelopment())
     app.MapGet("/", async context =>
     {
         // Escreve o conteúdo da página
-        await context.Response.WriteAsync("<h1>Bem-vindo à minha API</h1>");
+        await context.Response.WriteAsync("<h1><center>Bem-vindo a minha API</center></h1>");
     });
 }
 
