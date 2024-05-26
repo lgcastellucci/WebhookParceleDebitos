@@ -15,14 +15,19 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-else
-{
-    app.UseExceptionHandler("/Home/Error");
-    app.UseHsts();
-}
 
 app.UseAuthorization();
 
 app.MapControllers();
+
+if (!app.Environment.IsDevelopment())
+{
+    // Mapeia a rota padrão para a página desejada
+    app.MapGet("/", async context =>
+    {
+        // Escreve o conteúdo da página
+        await context.Response.WriteAsync("<h1>Bem-vindo à minha API</h1>");
+    });
+}
 
 app.Run();
